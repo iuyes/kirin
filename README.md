@@ -16,14 +16,14 @@ PHP开源电子商务网站
 
 2. 请将源代码放到apache的跟目录（如果不是apache的话，需要web server支持.htaccess）
 
-3. apache配置文件conf/apache_vhosts.conf中增加如下配置：
-   （请根据实际需求配置下面的路径）
-    &lt;VirtualHost kirin.com:8080&gt;
-        ServerAdmin webmaster@dummy-host2.example.com
-        DocumentRoot "/home/work/Webroot/kirin"
-        ServerName kirin.com
-        ErrorLog "/home/work/Logs/kirin-error_log"
-        CustomLog "/home/work/Logs/kirin-access_log" common
+3. apache配置文件conf/apache_vhosts.conf中增加如下配置：  
+   （请根据实际需求配置下面的路径）  
+    &lt;VirtualHost kirin.com:8080&gt;  
+        ServerAdmin webmaster@dummy-host2.example.com  
+        DocumentRoot "/home/work/Webroot/kirin"  
+        ServerName kirin.com  
+        ErrorLog "/home/work/Logs/kirin-error_log"  
+        CustomLog "/home/work/Logs/kirin-access_log" common  
     &lt;/VirtualHost&gt;  
 
 4. 请跟该一些配置文件
