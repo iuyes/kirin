@@ -28,17 +28,17 @@ PHP开源电子商务网站
 
 4. 请跟该一些配置文件
    
-   config/AdminConfig.php 这个是配置管理员的（管理员必须是注册用户）
-   config/DBConfig.php 这个配置数据连接
-   config/FeeConfig.php 这个配置配送费用
-   config/LocationConfig 这个配置经营范围
-   config/PhoneConfig.php 这个配置订单通知手机
-   model/SmsHelper.php 配置一下短信接口，我用的是中国网建短信接口   //可选，配置错误无法发送短信
+   config/AdminConfig.php 这个是配置管理员的（管理员必须是注册用户）  
+   config/DBConfig.php 这个配置数据连接  
+   config/FeeConfig.php 这个配置配送费用  
+   config/LocationConfig 这个配置经营范围  
+   config/PhoneConfig.php 这个配置订单通知手机  
+   model/SmsHelper.php 配置一下短信接口，我用的是中国网建短信接口   //可选，配置错误无法发送短信  
 
-后续开发：
+后续开发：  
 
-我打算以后不断完善这个系统，增加商品支持，做一个能够买卖任何商品的免费电子商务系统，如果您有兴趣的话，可以联系我跟我一同开发
+我打算以后不断完善这个系统，增加商品支持，做一个能够买卖任何商品的免费电子商务系统，如果您有兴趣的话，可以联系我跟我一同开发  
 
-联系方式: niujiaming0819@gmail.com
-
-QQ: 947847775
+联系方式: niujiaming0819@gmail.com  
+  
+QQ: 947847775  
