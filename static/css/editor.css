@@ -1,0 +1,47 @@
+.fi {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.fi li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+.fi-t {
+   padding-right: 10px;
+   padding-left: 10px;
+}
+
+.fi-text input {
+    height: 35px;
+    line-height: 25px;
+    vertical-align: middle;
+    padding: 5px;
+    width:600px;
+}
+
+.fi-radio {
+    margin-right: 5px;
+}
+
+.fi-font {
+    width: 50px;
+}
+
+.fi-radio input {
+    margin: 0;
+    padding: 0;
+}
+
+.fi-button {
+    margin-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    width: 100px;
+    color: #333333;
+}

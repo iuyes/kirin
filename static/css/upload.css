@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+#thumbnails {
+    height: 300px;
+}
+
+#thumbnails img {
+    height: 400px;
+    border: 1px solid #E13335;
+    height: 300px;
+}

@@ -1,0 +1,221 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.5
+-- http://www.phpmyadmin.net
+--
+-- 主机: localhost
+-- 生成日期: 2013 年 09 月 29 日 15:27
+-- 服务器版本: 5.0.51b-log
+-- PHP 版本: 5.4.13
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- 数据库: `kirin`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ad_img`
+--
+
+CREATE TABLE IF NOT EXISTS `ad_img` (
+  `ad_img_id` int(11) NOT NULL auto_increment,
+  `ad_img_location` int(11) NOT NULL COMMENT '广告展示的区域',
+  `ad_img_type` int(6) NOT NULL COMMENT '广告类型',
+  `ad_img_src` varchar(255) character set utf8 NOT NULL COMMENT '广告图片的路径',
+  `ad_img_url` varchar(255) character set utf8 NOT NULL COMMENT '广告URL',
+  `ad_img_des` varchar(255) character set utf8 NOT NULL COMMENT '广告图片的描述',
+  `ad_img_add_at` int(11) NOT NULL COMMENT '添加时间',
+  `ad_img_status` int(11) NOT NULL COMMENT '0正常，非0表示删除时间',
+  PRIMARY KEY  (`ad_img_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ariticle`
+--
+
+CREATE TABLE IF NOT EXISTS `ariticle` (
+  `ariticle_id` int(11) NOT NULL auto_increment,
+  `ariticle_title` varchar(255) character set utf8 NOT NULL COMMENT '文章标题',
+  `ariticle_type` int(11) NOT NULL COMMENT '文章类型，1为资讯 2为活动',
+  `ariticle_content` text character set utf8 NOT NULL COMMENT '文章内容',
+  `ariticle_add_at` int(11) NOT NULL COMMENT '添加时间',
+  `ariticle_status` int(11) NOT NULL COMMENT '0为正常文章，非0代表文章已经被删除，数字表示删除时间',
+  PRIMARY KEY  (`ariticle_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `collect`
+--
+
+CREATE TABLE IF NOT EXISTS `collect` (
+  `collect_id` int(11) NOT NULL auto_increment COMMENT '收藏id',
+  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `goods_id` int(11) NOT NULL COMMENT '货物id',
+  `collect_at` int(11) NOT NULL COMMENT '收藏添加时间',
+  `collect_status` int(11) NOT NULL COMMENT '收藏状态，0正常，1被删除',
+  PRIMARY KEY  (`collect_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `commend`
+--
+
+CREATE TABLE IF NOT EXISTS `commend` (
+  `commend_id` int(11) NOT NULL auto_increment,
+  `commend_type` int(11) NOT NULL COMMENT '推荐类型',
+  `goods_id` int(11) NOT NULL COMMENT '物品ID',
+  `commend_at` int(11) NOT NULL COMMENT '推荐时间',
+  PRIMARY KEY  (`commend_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `commend_in_index`
+--
+
+CREATE TABLE IF NOT EXISTS `commend_in_index` (
+  `cii_id` int(11) NOT NULL auto_increment,
+  `cii_goods_id` int(11) NOT NULL,
+  `cii_img` varchar(255) NOT NULL,
+  `cii_add_at` int(11) NOT NULL,
+  PRIMARY KEY  (`cii_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `comment`
+--
+
+CREATE TABLE IF NOT EXISTS `comment` (
+  `comment_id` int(11) NOT NULL auto_increment,
+  `comment_by` int(11) NOT NULL COMMENT '评论人',
+  `comment_at` int(11) NOT NULL COMMENT '评论时间',
+  `goods_id` int(11) NOT NULL COMMENT '评论商品id',
+  `comment_content` varchar(255) NOT NULL COMMENT '评论内容',
+  `comment_score` int(11) NOT NULL COMMENT '用户评分',
+  PRIMARY KEY  (`comment_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `delivery`
+--
+
+CREATE TABLE IF NOT EXISTS `delivery` (
+  `delivery_id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL COMMENT '订单提交人员id',
+  `delivery_address` varchar(255) character set utf8 NOT NULL COMMENT '用户地址',
+  `delivery_phone` varchar(32) character set utf8 NOT NULL COMMENT '用户联系方式',
+  `delivery_name` varchar(64) character set utf8 NOT NULL COMMENT '用户姓名',
+  `delivery_status` int(11) NOT NULL COMMENT '配送地址状态，非表示删除时间 0为正常',
+  `delivery_add_at` int(11) NOT NULL COMMENT '添加时间',
+  PRIMARY KEY  (`delivery_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `goods`
+--
+
+CREATE TABLE IF NOT EXISTS `goods` (
+  `goods_id` int(11) NOT NULL auto_increment,
+  `goods_location` int(11) NOT NULL,
+  `goods_type` int(11) NOT NULL COMMENT '货物类型,1蔬菜 2水果',
+  `goods_name` varchar(255) NOT NULL COMMENT '商品名称',
+  `goods_category` varchar(255) NOT NULL COMMENT '分类',
+  `goods_ad` varchar(255) NOT NULL COMMENT '广告语',
+  `goods_img_60x60` varchar(255) NOT NULL,
+  `goods_img_220x220` varchar(255) NOT NULL,
+  `goods_img_300x300` varchar(255) NOT NULL,
+  `goods_price` double NOT NULL default '0',
+  `goods_price_weight` int(11) NOT NULL COMMENT '想对于价格goods_price的货物重量',
+  `goods_weight_min` int(11) NOT NULL COMMENT '货物重量最小值',
+  `goods_weight_max` int(11) NOT NULL COMMENT '货物重量重大值',
+  `goods_img` varchar(255) NOT NULL COMMENT '商品图片',
+  `goods_add_by` int(11) NOT NULL COMMENT '商品添加人',
+  `goods_add_at` int(11) NOT NULL COMMENT '商品添加时间',
+  `goods_edit_at` int(11) NOT NULL COMMENT '最后一次编辑时间',
+  `goods_score` int(11) NOT NULL default '4',
+  `goods_total_comment` int(11) default '0',
+  `goods_promotion` int(11) NOT NULL default '100' COMMENT '促销，也就是打多少折',
+  `goods_read_times` int(11) NOT NULL default '0' COMMENT '物品被预览的次数',
+  `goods_sale_times` int(11) NOT NULL default '0' COMMENT '物品销售的次数',
+  `goods_status` int(11) NOT NULL default '0' COMMENT '0正常 非零为删除时间',
+  PRIMARY KEY  (`goods_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='商品表' AUTO_INCREMENT=99 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `order`
+--
+
+CREATE TABLE IF NOT EXISTS `order` (
+  `order_id` int(11) NOT NULL auto_increment COMMENT '自增主键',
+  `order_add_by` int(11) NOT NULL COMMENT '订单添加人',
+  `order_add_at` int(11) NOT NULL COMMENT '订单添加时间 ',
+  `send_to_address` varchar(255) NOT NULL COMMENT '收货地址',
+  `send_to_phone` varchar(32) NOT NULL COMMENT '联系人电话',
+  `send_to_name` varchar(32) NOT NULL COMMENT '收货人名称',
+  `send_time` int(11) NOT NULL COMMENT '期望配送时间',
+  `order_status` int(11) NOT NULL COMMENT '订单状态，0正常，1已经删除',
+  PRIMARY KEY  (`order_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13640261 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `order_goods`
+--
+
+CREATE TABLE IF NOT EXISTS `order_goods` (
+  `id` int(11) NOT NULL auto_increment,
+  `order_id` int(11) NOT NULL COMMENT '订单id',
+  `goods_info` text NOT NULL,
+  `number` int(11) NOT NULL COMMENT '具体购买数量',
+  `have_comment` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=100 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `shopping_cart`
+--
+
+CREATE TABLE IF NOT EXISTS `shopping_cart` (
+  `sc_id` int(11) NOT NULL auto_increment,
+  `goods_id` int(11) NOT NULL COMMENT '物品ID',
+  `number` int(11) NOT NULL COMMENT '购买份数',
+  `user_id` int(11) NOT NULL COMMENT '用户ID',
+  `sc_at` int(11) NOT NULL COMMENT '添加时间',
+  PRIMARY KEY  (`sc_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=111 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(11) NOT NULL auto_increment COMMENT '用户id',
+  `user_name` varchar(255) NOT NULL COMMENT '用户名',
+  `user_password` varchar(255) NOT NULL COMMENT '用户密码',
+  `user_add_at` int(11) NOT NULL COMMENT '用户注册时间',
+  PRIMARY KEY  (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+
