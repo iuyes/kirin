@@ -18,7 +18,7 @@ PHP开源电子商务网站
 
 3. apache配置文件conf/apache_vhosts.conf中增加如下配置：
    （请根据实际需求配置下面的路径）
-    <VirtualHost kirin.com:8080>
+    &lt;VirtualHost kirin.com:8080&gt;
         ServerAdmin webmaster@dummy-host2.example.com
         DocumentRoot "/home/work/Webroot/kirin"
         ServerName kirin.com
