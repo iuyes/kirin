@@ -24,7 +24,7 @@ PHP开源电子商务网站
         ServerName kirin.com
         ErrorLog "/home/work/Logs/kirin-error_log"
         CustomLog "/home/work/Logs/kirin-access_log" common
-    </VirtualHost>  
+    &lt;/VirtualHost&gt;  
 
 4. 请跟该一些配置文件
    
