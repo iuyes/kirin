@@ -1,3 +1,0 @@
-#! /bin/bash
-rm /home/work/.vandyke/SecureCRT/Config/SecureCRT_eval.lic
-/home/work/bin/scrt-7.1.0/SecureCRT &
