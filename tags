@@ -1169,7 +1169,7 @@ uploadfile	static/jcrop/uploadPhoto.php	/^		$uploadfile = $uploaddir . basename(
 url	controller/Home/UserInfoController.php	/^                $url = URL::encode(array(), 'Home', 'Index', 'index');$/;"	v
 url	controller/Home/UserInfoController.php	/^                $url = urldecode($_REQUEST['_t']);$/;"	v
 url	lib/BaseController.php	/^    public function goBack($alert, $url = ''){$/;"	v
-url	model/SmsHelper.php	/^        $url = "http:\/\/utf8.sms.webchinese.cn\/?Uid=niujiaming&Key=be9cc4517738f3221fc6&smsMob={$phone}&smsText={$msg}";$/;"	v
+url	model/SmsHelper.php	/^        $url = "http:\/\/utf8.sms.webchinese.cn\/?Uid=niujiaming&Key=这里是您的密码&smsMob={$phone}&smsText={$msg}";$/;"	v
 url_cur_page	lib/PageHelper.php	/^			$url_cur_page = URL::encode(array_merge($param, array('page' => $i, 'pagesize' => $pagesize)), $module, $controller, $action);$/;"	v
 url_first_page	lib/PageHelper.php	/^		$url_first_page = URL::encode(array_merge($param, array('page' => 1, 'pagesize' => $pagesize)), $module, $controller, $action);$/;"	v
 url_last_page	lib/PageHelper.php	/^		$url_last_page = URL::encode(array_merge($param, array('page' => max($page - 1, 1), 'pagesize' => $pagesize)), $module, $controller, $action);$/;"	v
